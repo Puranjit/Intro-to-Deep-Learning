@@ -1,3 +1,5 @@
+# I have used different code sizes to calculate Mean squared error after running the autoencoders
+
 # We'll start with our library imports...
 from __future__ import print_function
 
@@ -150,7 +152,7 @@ class DownscaleBlock(tf.keras.layers.Layer):
 encoder_network = tf.keras.Sequential([
     tf.keras.layers.Conv2D(32, 3, padding='same',
                            activation=tf.nn.swish),  #28,28,16
-    # DownscaleBlock(1),  # 14,14,32
+    DownscaleBlock(1),  # 14,14,32
     # DownscaleBlock(2),  # 7,7,64
     tf.keras.layers.Conv2D(64, 3, padding='same',
                            activation=tf.nn.swish),  # 7,7,64
@@ -166,7 +168,7 @@ decoder_network = tf.keras.Sequential([
                            activation=tf.nn.swish),  # 7,7,16
     tf.keras.layers.Conv2D(64, 3, padding='same',
                            activation=tf.nn.swish),  # 7,7,64
-    # UpscaleBlock(1),  # 14,14,32
+    UpscaleBlock(1),  # 14,14,32
     # UpscaleBlock(2),  # 28,28,16
     tf.keras.layers.Conv2D(4, 3, padding='same',
                            activation=tf.nn.swish),  #28,28,4
@@ -194,3 +196,19 @@ mse = MeanSquaredError()
 ans = mse(x, output).numpy()
 
 print(ans)
+
+x = np.array([7, 14, 28])
+
+y = np.array([291.135, 103.444534, 27.883097])
+
+plt.plot(x, y, 'o')
+plt.xticks([x for x in range(7,29,7) if x%21!=0])
+
+m, b = np.polyfit(x, y, 1)
+plt.plot(x, m*x+b)
+
+plt.ylabel('Mean Square Error')
+plt.xlabel('Different Code sizes')
+plt.title('Best fit line for autoencoder architecture')
+
+plt.show()
