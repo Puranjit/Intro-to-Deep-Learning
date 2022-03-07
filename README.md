@@ -1,3 +1,3 @@
-# Intro-to-Deep-Learning
+# Intro-to-Deep-Learning (CSCE 479/879)
 
-#### This repository includes Hackathon and their solutions that I submitted for my course - Intro to Deep Learning CSCE 879 (Spring 2022) with Dr. Stephen Scott at UNL.
+#### This repository includes course material for course - Intro to Deep Learning CSCE 479/879 (Spring 2022) taught by Dr. Stephen Scott and his TA Eleanor Quint at UNL.
