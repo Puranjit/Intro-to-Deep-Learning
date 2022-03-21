@@ -45,7 +45,7 @@ checkpointer = tf.keras.callbacks.ModelCheckpoint('WeedDetectionModelV3.h5', sav
 
 callbacks = [
     tf.keras.callbacks.TensorBoard(log_dir = 'logs'),
-    tf.keras.callbacks.EarlyStopping(patience = 5, monitor = 'val_loss'),
+    tf.keras.callbacks.EarlyStopping(patience = 10, monitor = 'val_loss'),
     checkpointer]
 
 result = model.fit(training_set, validation_data = test_set, epochs = 10, 
