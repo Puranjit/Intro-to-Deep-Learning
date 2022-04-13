@@ -1,1 +1,1 @@
-Files associated with ResNet50 architecture model
+Files associated with ResNet50, ResNet101 and ResNet152 architecture model
